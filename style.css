@@ -1,0 +1,296 @@
+/* ===== Base ===== */
+:root {
+  --bg: #f7f5f0;
+  --text: #26333d;
+  --primary: #1b6f8c;
+  --primary-dark: #124d61;
+  --accent: #e08e45;
+  --card-bg: #ffffff;
+  --header-bg: #103b4e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--primary-dark);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Header & Nav ===== */
+.site-header {
+  background-color: var(--header-bg);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.navbar a {
+  color: #f0f0f0;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  text-decoration: none;
+}
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(rgba(16,59,78,0.55), rgba(16,59,78,0.55)),
+              url('https://picsum.photos/seed/hero-travel/1400/600') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 110px 20px;
+}
+
+.hero-text h1 {
+  color: #fff;
+  font-size: 2.6rem;
+  margin-bottom: 14px;
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  margin-bottom: 26px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #fff;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #c9772f;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section.alt {
+  background-color: #eef2ee;
+  border-radius: 10px;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section > p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+}
+
+/* ===== Destination Cards ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3, .card p {
+  padding: 0 16px;
+}
+
+.card h3 {
+  margin-top: 14px;
+}
+
+.card p {
+  margin-bottom: 16px;
+}
+
+/* ===== About list ===== */
+.reasons-list {
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  padding-left: 20px;
+}
+
+.reasons-list li {
+  margin-bottom: 8px;
+}
+
+.section.alt p {
+  text-align: left;
+  max-width: 700px;
+}
+
+/* ===== Toolkit ===== */
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.tool-card {
+  background-color: var(--card-bg);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.tool-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+#live-clock, #countdown {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+#quote-output {
+  margin-top: 14px;
+  font-style: italic;
+}
+
+.theme-toggle-wrap {
+  text-align: center;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background-color: var(--header-bg);
+  color: #eee;
+  text-align: center;
+  padding: 26px 20px;
+  margin-top: 40px;
+}
+
+.site-footer a {
+  color: var(--accent);
+}
+
+/* ===== Dark mode (toggled via JS on body) ===== */
+body.dark-mode {
+  --bg: #16202a;
+  --text: #e8e8e8;
+  --card-bg: #223140;
+  --header-bg: #0b1620;
+}
+
+body.dark-mode .section.alt {
+  background-color: #1c2a36;
+}
+
+body.dark-mode .card,
+body.dark-mode .tool-card {
+  border-color: #33475a;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .hero {
+    padding: 70px 16px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+}

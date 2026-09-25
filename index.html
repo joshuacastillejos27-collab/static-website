@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wander Well | Travel the World</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">🌍 Wander Well</div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#toolkit">Trip Toolkit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Explore More of the World</h1>
+      <p>Travel guides, destination tips, and tools to help you plan your next adventure.</p>
+      <a href="#destinations" class="btn">See Destinations</a>
+    </div>
+  </section>
+
+  <main>
+
+    <section id="destinations" class="section">
+      <h2>Popular Destinations</h2>
+      <p>A few of our favorite places to start planning your next trip.</p>
+      <div class="card-grid">
+        <div class="card">
+          <img src="https://picsum.photos/seed/kyoto/400/260" alt="Kyoto, Japan">
+          <h3>Kyoto, Japan</h3>
+          <p>Historic temples, quiet gardens, and unforgettable street food.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/santorini/400/260" alt="Santorini, Greece">
+          <h3>Santorini, Greece</h3>
+          <p>Whitewashed villages perched above the deep blue Aegean Sea.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/patagonia/400/260" alt="Patagonia, South America">
+          <h3>Patagonia</h3>
+          <p>Dramatic mountains and glaciers for the adventurous traveler.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/marrakech/400/260" alt="Marrakech, Morocco">
+          <h3>Marrakech, Morocco</h3>
+          <p>Vibrant markets, rich color, and centuries of history.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section alt">
+      <h2>About This Site</h2>
+      <p>Wander Well was built as a resource for students and new travelers planning their first
+        big trips abroad. Whether you're looking for destination inspiration or just want to
+        track a countdown to your next departure, this site brings a few handy tools together
+        in one place.</p>
+      <h3>Why travel?</h3>
+      <ul class="reasons-list">
+        <li>Experience new cultures and cuisines firsthand</li>
+        <li>Build confidence navigating unfamiliar places</li>
+        <li>Create memories that last far longer than souvenirs</li>
+        <li>Meet people you'd never otherwise cross paths with</li>
+      </ul>
+      <p>Read more travel planning tips on
+        <a href="https://www.nomadicmatt.com/travel-blogs/" target="_blank" rel="noopener">Nomadic Matt's blog</a>.
+      </p>
+    </section>
+
+    <section id="toolkit" class="section">
+      <h2>Trip Toolkit</h2>
+      <p>A few interactive tools to help you get ready for takeoff.</p>
+
+      <div class="toolkit-grid">
+        <div class="tool-card">
+          <h3>Current Time</h3>
+          <p id="live-clock">--:--:--</p>
+        </div>
+
+        <div class="tool-card">
+          <h3>Countdown to Next Trip</h3>
+          <p id="countdown">Loading...</p>
+        </div>
+
+        <div class="tool-card">
+          <h3>Need Inspiration?</h3>
+          <button id="quote-btn" class="btn">Get a Travel Quote</button>
+          <p id="quote-output">Click the button for a spark of wanderlust.</p>
+        </div>
+      </div>
+
+      <div class="theme-toggle-wrap">
+        <button id="theme-toggle" class="btn btn-outline">Toggle Dark Mode</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <p>Built for the GitHub Pages Activity | &copy; <span id="year"></span> Wander Well</p>
+    <p>Images via <a href="https://picsum.photos" target="_blank" rel="noopener">Picsum Photos</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
