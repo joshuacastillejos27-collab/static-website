@@ -1,7 +1,5 @@
-// ===== Footer year =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== Live Time Counter (now in the top bar) =====
 function updateClock() {
   const now = new Date();
   let hours = now.getHours();
@@ -20,7 +18,6 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// ===== Countdown Timer =====
 function getNextNewYear() {
   const now = new Date();
   const year = now.getMonth() === 0 && now.getDate() === 1 ? now.getFullYear() : now.getFullYear() + 1;
@@ -61,7 +58,6 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// ===== Interactive Button: random travel quote =====
 const travelQuotes = [
   "The world is a book, and those who do not travel read only one page.",
   "Travel far enough, you meet yourself.",
@@ -80,7 +76,6 @@ quoteBtn.addEventListener('click', () => {
   quoteOutput.textContent = travelQuotes[randomIndex];
 });
 
-// ===== Dark / Light mode toggle =====
 const themeToggle = document.getElementById('theme-toggle');
 
 themeToggle.addEventListener('click', () => {
@@ -89,8 +84,6 @@ themeToggle.addEventListener('click', () => {
   themeToggle.textContent = isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode';
 });
 
-// ===== Header: hide on scroll down, show on scroll up, =====
-// stays visible near the top and briefly after a nav click.
 const header = document.getElementById('site-header');
 const topbarHeight = 34;
 let lastScrollY = window.scrollY;
@@ -116,7 +109,6 @@ function handleHeaderScroll() {
   lastScrollY = currentScrollY;
 }
 
-// ===== Nav clicks: keep header visible while the page smooth-scrolls =====
 const navLinks = document.querySelectorAll('.nav-link');
 
 navLinks.forEach(link => {
@@ -132,7 +124,6 @@ navLinks.forEach(link => {
   });
 });
 
-// ===== Scrollspy: highlight the nav link for the section in view =====
 const sections = document.querySelectorAll('main section[id], .hero[id]');
 
 const spyObserver = new IntersectionObserver((entries) => {
@@ -151,7 +142,6 @@ const spyObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => spyObserver.observe(section));
 
-// ===== Scroll reveal animations for sections/cards =====
 const revealEls = document.querySelectorAll('.reveal');
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -165,7 +155,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealEls.forEach(el => revealObserver.observe(el));
 
-// ===== Scroll listener (plane position + header show/hide) =====
 function onScroll() {
   updatePlanePosition();
   handleHeaderScroll();
