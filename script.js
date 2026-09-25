@@ -1,7 +1,7 @@
 // ===== Footer year =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== JS Requirement 1: Live Time Counter =====
+// ===== Live Time Counter (now in the top bar) =====
 function updateClock() {
   const now = new Date();
   let hours = now.getHours();
@@ -10,7 +10,7 @@ function updateClock() {
   const ampm = hours >= 12 ? 'PM' : 'AM';
 
   hours = hours % 12;
-  hours = hours ? hours : 12; // hour 0 should be 12
+  hours = hours ? hours : 12;
   const hoursStr = String(hours).padStart(2, '0');
 
   document.getElementById('live-clock').textContent =
@@ -20,8 +20,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// ===== JS Requirement 2: Countdown Timer =====
-// Countdown target: next New Year's Day
+// ===== Countdown Timer =====
 function getNextNewYear() {
   const now = new Date();
   const year = now.getMonth() === 0 && now.getDate() === 1 ? now.getFullYear() : now.getFullYear() + 1;
@@ -29,15 +28,16 @@ function getNextNewYear() {
 }
 
 const countdownTarget = getNextNewYear();
+const countdownEl = document.getElementById('countdown');
+const miniCountdownEl = document.getElementById('mini-countdown');
 
 function updateCountdown() {
   const now = new Date();
   let diff = countdownTarget - now;
 
-  const countdownEl = document.getElementById('countdown');
-
   if (diff <= 0) {
-    countdownEl.textContent = 'It\'s here! Happy travels!';
+    countdownEl.textContent = "It's here! Happy travels!";
+    miniCountdownEl.textContent = '0d';
     return;
   }
 
@@ -54,12 +54,14 @@ function updateCountdown() {
 
   countdownEl.textContent =
     `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+
+  miniCountdownEl.textContent = `${days}d ${String(hours).padStart(2, '0')}h`;
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// ===== JS Requirement 3: Interactive Button (random travel quote) =====
+// ===== Interactive Button: random travel quote =====
 const travelQuotes = [
   "The world is a book, and those who do not travel read only one page.",
   "Travel far enough, you meet yourself.",
@@ -78,7 +80,7 @@ quoteBtn.addEventListener('click', () => {
   quoteOutput.textContent = travelQuotes[randomIndex];
 });
 
-// ===== Extra feature: Dark / Light mode toggle =====
+// ===== Dark / Light mode toggle =====
 const themeToggle = document.getElementById('theme-toggle');
 
 themeToggle.addEventListener('click', () => {
@@ -86,3 +88,89 @@ themeToggle.addEventListener('click', () => {
   const isDark = document.body.classList.contains('dark-mode');
   themeToggle.textContent = isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode';
 });
+
+// ===== Header: hide on scroll down, show on scroll up, =====
+// stays visible near the top and briefly after a nav click.
+const header = document.getElementById('site-header');
+const topbarHeight = 34;
+let lastScrollY = window.scrollY;
+let headerLocked = false;
+let lockTimeout = null;
+
+function handleHeaderScroll() {
+  const currentScrollY = window.scrollY;
+
+  if (headerLocked) {
+    lastScrollY = currentScrollY;
+    return;
+  }
+
+  if (currentScrollY <= topbarHeight + 40) {
+    header.classList.remove('header-hidden');
+  } else if (currentScrollY > lastScrollY) {
+    header.classList.add('header-hidden');
+  } else if (currentScrollY < lastScrollY) {
+    header.classList.remove('header-hidden');
+  }
+
+  lastScrollY = currentScrollY;
+}
+
+// ===== Nav clicks: keep header visible while the page smooth-scrolls =====
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    headerLocked = true;
+    header.classList.remove('header-hidden');
+
+    clearTimeout(lockTimeout);
+    lockTimeout = setTimeout(() => {
+      headerLocked = false;
+      lastScrollY = window.scrollY;
+    }, 900);
+  });
+});
+
+// ===== Scrollspy: highlight the nav link for the section in view =====
+const sections = document.querySelectorAll('main section[id], .hero[id]');
+
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, {
+  rootMargin: '-40% 0px -50% 0px',
+  threshold: 0
+});
+
+sections.forEach(section => spyObserver.observe(section));
+
+// ===== Scroll reveal animations for sections/cards =====
+const revealEls = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ===== Scroll listener (plane position + header show/hide) =====
+function onScroll() {
+  updatePlanePosition();
+  handleHeaderScroll();
+}
+
+updatePlanePosition();
+window.addEventListener('scroll', onScroll);
+window.addEventListener('resize', updatePlanePosition);

@@ -3,89 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wander Well | Travel the World</title>
+  <title>Compass & Cloud | Travel the World</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="logo">🌍 Wander Well</div>
+  <!-- Top bar: always-visible live clock -->
+  <div class="top-bar">
+    <span class="top-bar-item">🕒 Local time: <span id="live-clock">--:--:--</span></span>
+    <span class="top-bar-item hide-small">✈️ Next departure in <span id="mini-countdown">--</span></span>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="site-header" id="site-header">
+    <a href="#home" class="logo">
+      <span class="logo-mark">🧭</span>
+      <span class="logo-text">Compass <em>&amp;</em> Cloud</span>
+    </a>
     <nav class="navbar">
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#toolkit">Trip Toolkit</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#destinations" class="nav-link">Destinations</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#toolkit" class="nav-link">Trip Toolkit</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section id="home" class="hero">
     <div class="hero-text">
-      <h1>Explore More of the World</h1>
-      <p>Travel guides, destination tips, and tools to help you plan your next adventure.</p>
-      <a href="#destinations" class="btn">See Destinations</a>
+      <h1>Go Further. See More.</h1>
+      <p>Destination inspiration, planning tools, and a countdown to your next great escape.</p>
+      <a href="#destinations" class="btn">Explore Destinations</a>
     </div>
+    <a href="#destinations" class="scroll-hint" aria-hidden="true">&#8595;</a>
   </section>
 
   <main>
 
     <section id="destinations" class="section">
-      <h2>Popular Destinations</h2>
-      <p>A few of our favorite places to start planning your next trip.</p>
-      <div class="card-grid">
-        <div class="card">
-          <img src="https://picsum.photos/seed/kyoto/400/260" alt="Kyoto, Japan">
-          <h3>Kyoto, Japan</h3>
-          <p>Historic temples, quiet gardens, and unforgettable street food.</p>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/seed/santorini/400/260" alt="Santorini, Greece">
-          <h3>Santorini, Greece</h3>
-          <p>Whitewashed villages perched above the deep blue Aegean Sea.</p>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/seed/patagonia/400/260" alt="Patagonia, South America">
-          <h3>Patagonia</h3>
-          <p>Dramatic mountains and glaciers for the adventurous traveler.</p>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/seed/marrakech/400/260" alt="Marrakech, Morocco">
-          <h3>Marrakech, Morocco</h3>
-          <p>Vibrant markets, rich color, and centuries of history.</p>
-        </div>
+      <h2 class="reveal">Popular Destinations</h2>
+      <p class="section-intro reveal">A few of our favorite places to start planning your next trip.</p>
+
+      <div class="dest-grid">
+        <article class="dest-card dest-card-large reveal">
+          <img src="https://picsum.photos/seed/kyoto/900/700" alt="Kyoto, Japan">
+          <div class="dest-overlay">
+            <h3>Kyoto, Japan</h3>
+            <p>Historic temples, quiet gardens, and unforgettable street food.</p>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="https://picsum.photos/seed/santorini/700/600" alt="Santorini, Greece">
+          <div class="dest-overlay">
+            <h3>Santorini, Greece</h3>
+            <p>Whitewashed villages above the deep blue Aegean Sea.</p>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="https://picsum.photos/seed/patagonia/700/600" alt="Patagonia, South America">
+          <div class="dest-overlay">
+            <h3>Patagonia</h3>
+            <p>Dramatic mountains and glaciers for the adventurous traveler.</p>
+          </div>
+        </article>
+
+        <article class="dest-card reveal">
+          <img src="https://picsum.photos/seed/marrakech/700/600" alt="Marrakech, Morocco">
+          <div class="dest-overlay">
+            <h3>Marrakech, Morocco</h3>
+            <p>Vibrant markets, rich color, and centuries of history.</p>
+          </div>
+        </article>
+
+        <article class="dest-card dest-card-wide reveal">
+          <img src="https://picsum.photos/seed/reykjavik/1200/600" alt="Reykjavik, Iceland">
+          <div class="dest-overlay">
+            <h3>Reykjavik, Iceland</h3>
+            <p>Northern lights, hot springs, and dramatic volcanic landscapes.</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="about" class="section alt">
-      <h2>About This Site</h2>
-      <p>Wander Well was built as a resource for students and new travelers planning their first
-        big trips abroad. Whether you're looking for destination inspiration or just want to
-        track a countdown to your next departure, this site brings a few handy tools together
-        in one place.</p>
-      <h3>Why travel?</h3>
-      <ul class="reasons-list">
-        <li>Experience new cultures and cuisines firsthand</li>
-        <li>Build confidence navigating unfamiliar places</li>
-        <li>Create memories that last far longer than souvenirs</li>
-        <li>Meet people you'd never otherwise cross paths with</li>
-      </ul>
-      <p>Read more travel planning tips on
-        <a href="https://www.nomadicmatt.com/travel-blogs/" target="_blank" rel="noopener">Nomadic Matt's blog</a>.
-      </p>
+      <div class="about-grid">
+        <div class="about-images reveal">
+          <img src="https://picsum.photos/seed/aboutmain/600/700" alt="Traveler looking at a map" class="about-img-main">
+          <img src="https://picsum.photos/seed/aboutsmall/360/360" alt="Passport and travel journal" class="about-img-small">
+        </div>
+        <div class="about-content reveal">
+          <span class="eyebrow">Our Story</span>
+          <h2>Built by Travelers, for Travelers</h2>
+          <p>Compass &amp; Cloud started as a class project and grew into a small resource for
+            students and first-time travelers planning their first big trip abroad. It brings
+            destination inspiration and a few handy planning tools together in one place.</p>
+
+          <h3>Why travel?</h3>
+          <ul class="reasons-list">
+            <li><span>🌏</span> Experience new cultures and cuisines firsthand</li>
+            <li><span>🧭</span> Build confidence navigating unfamiliar places</li>
+            <li><span>📸</span> Create memories that last far longer than souvenirs</li>
+            <li><span>🤝</span> Meet people you'd never otherwise cross paths with</li>
+          </ul>
+
+          <p>Read more travel planning tips on
+            <a href="https://www.nomadicmatt.com/travel-blogs/61-travel-tips/" target="_blank" rel="noopener">Nomadic Matt's blog</a>.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="toolkit" class="section">
-      <h2>Trip Toolkit</h2>
-      <p>A few interactive tools to help you get ready for takeoff.</p>
+      <h2 class="reveal">Trip Toolkit</h2>
+      <p class="section-intro reveal">A few interactive tools to help you get ready for takeoff.</p>
 
-      <div class="toolkit-grid">
-        <div class="tool-card">
-          <h3>Current Time</h3>
-          <p id="live-clock">--:--:--</p>
-        </div>
-
+      <div class="toolkit-grid reveal">
         <div class="tool-card">
           <h3>Countdown to Next Trip</h3>
           <p id="countdown">Loading...</p>
@@ -96,17 +137,18 @@
           <button id="quote-btn" class="btn">Get a Travel Quote</button>
           <p id="quote-output">Click the button for a spark of wanderlust.</p>
         </div>
-      </div>
 
-      <div class="theme-toggle-wrap">
-        <button id="theme-toggle" class="btn btn-outline">Toggle Dark Mode</button>
+        <div class="tool-card">
+          <h3>Display Mode</h3>
+          <button id="theme-toggle" class="btn btn-outline">Toggle Dark Mode</button>
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer id="contact" class="site-footer">
-    <p>Built for the GitHub Pages Activity | &copy; <span id="year"></span> Wander Well</p>
+    <p>Built for the GitHub Pages Activity | &copy; <span id="year"></span> Compass &amp; Cloud</p>
     <p>Images via <a href="https://picsum.photos" target="_blank" rel="noopener">Picsum Photos</a></p>
   </footer>
 
